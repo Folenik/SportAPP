@@ -1,6 +1,11 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -14,7 +19,19 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+    }
+
+    defaultConfig {
+        buildConfigField("String", "APP_NAME", "\"WikiRandom\"")
+        buildConfigField("String", "API_BASE_URL", "\"https://en.wikipedia.org/api/\"")
+        buildConfigField("String", "API_RANDOM_ARTICLE_ENDPOINT", "\"rest_v1/page/random/summary\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    buildFeatures {
+        buildConfig = true
+        compose = true
     }
 
     buildTypes {
@@ -26,21 +43,56 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    packaging {
+        resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+    }
+
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=androidx.compose.material.ExperimentalMaterialApi"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=androidx.compose.foundation.ExperimentalFoundationApi"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=androidx.compose.ui.ExperimentalComposeUiApi"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=androidx.compose.animation.ExperimentalAnimationApi"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=androidx.compose.animation.graphics.ExperimentalAnimationGraphicsApi"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi"
 }
 
 dependencies {
+    implementation(libs.hilt)
+    implementation(libs.navigation)
+    implementation(libs.timber)
+    implementation(libs.kotlin.serialization)
+    implementation(libs.kotlin.serialization.converter)
+    implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.compose.material3)
+    implementation(libs.kotlin.coroutines)
+    implementation(libs.navigation.hilt)
+    implementation(libs.retrofit)
+    implementation(libs.coil)
+    implementation(platform(libs.compose.bom))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.bundles.common.test)
+    androidTestImplementation(libs.bundles.common.android.test)
+    debugImplementation(libs.debug.compose.manifest)
+
+    ksp(libs.hilt.compiler)
+    kspAndroidTest(libs.test.android.hilt.compiler)
 }
