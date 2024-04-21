@@ -22,12 +22,12 @@ android {
     }
 
     defaultConfig {
-        buildConfigField("String", "APP_NAME", "\"WikiRandom\"")
-        buildConfigField("String", "API_BASE_URL", "\"https://en.wikipedia.org/api/\"")
-        buildConfigField("String", "API_RANDOM_ARTICLE_ENDPOINT", "\"rest_v1/page/random/summary\"")
+        buildConfigField("String", "APP_NAME", "\"SportAPP\"")
+        buildConfigField("String", "API_BASE_URL", "\"https://us-central1-dazn-sandbox.cloudfunctions.net/\"")
+        buildConfigField("String", "API_GET_SCHEDULE_ENDPOINT", "\"getSchedule\"")
+        buildConfigField("String", "API_GET_EVENTS_ENDPOINT", "\"getEvents\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
 
     buildFeatures {
         buildConfig = true
