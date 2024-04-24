@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.mosz.sportapp.data.model.Event
+import com.mosz.sportapp.utils.Screen
 import com.mosz.sportapp.utils.navigate
 
 @Composable

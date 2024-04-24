@@ -1,4 +1,4 @@
-package com.mosz.sportapp.ui.components
+package com.mosz.sportapp.utils
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
