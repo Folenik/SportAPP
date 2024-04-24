@@ -48,7 +48,7 @@ class ScheduleViewModel @Inject constructor(
         refreshJob?.cancel()
     }
 
-    private fun getSchedule() {
+    fun getSchedule() {
         viewModelScope.launch(dispatcherProvider.io()) {
             repository.getSchedule().collect { values ->
                 when (values) {

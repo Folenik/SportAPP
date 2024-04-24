@@ -19,7 +19,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.mosz.sportapp.ui.components.Screen
+import com.mosz.sportapp.utils.Screen
 import com.mosz.sportapp.ui.events.EventsScreen
 import com.mosz.sportapp.ui.events.EventsViewModel
 import com.mosz.sportapp.ui.schedule.ScheduleScreen
@@ -72,15 +72,8 @@ class MainActivity : ComponentActivity() {
                     Modifier.padding(innerPadding)
                 ) {
                     composable(Screen.Events.route) { EventsScreen(navController, eventsViewModel) }
-                    composable(Screen.Schedule.route) {
-                        ScheduleScreen(
-                            navController,
-                            scheduleViewModel
-                        )
-                    }
-                    composable(Screen.VideoPlayer.route) {
-                        VideoScreen(navController)
-                    }
+                    composable(Screen.Schedule.route) { ScheduleScreen(scheduleViewModel) }
+                    composable(Screen.VideoPlayer.route) { VideoScreen(navController) }
                 }
             }
         }

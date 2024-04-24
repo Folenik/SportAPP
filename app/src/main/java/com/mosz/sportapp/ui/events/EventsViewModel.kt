@@ -27,7 +27,7 @@ class EventsViewModel @Inject constructor(
         getEvents()
     }
 
-    private fun getEvents() {
+    fun getEvents() {
         viewModelScope.launch(dispatcherProvider.io()) {
             repository.getEvents().collect { values ->
                 when (values) {

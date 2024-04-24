@@ -6,18 +6,20 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.navigation.NavController
+import com.mosz.sportapp.ui.components.Error
 import com.mosz.sportapp.ui.components.ProgressIndicator
 import com.mosz.sportapp.ui.components.ScheduleList
+import com.mosz.sportapp.ui.events.EventsState
 
 @Composable
-fun ScheduleScreen(navController: NavController, viewModel: ScheduleViewModel) {
+fun ScheduleScreen(viewModel: ScheduleViewModel) {
     when (val scheduleState = viewModel.schedule.collectAsState().value) {
         is ScheduleState.Loading -> ProgressIndicator(modifier = Modifier.alpha(1f))
         is ScheduleState.Success -> {
             ScheduleList(items = scheduleState.schedule)
         }
         is ScheduleState.Error -> {
-            println("MLOGI scheduleStateError: $scheduleState")
+            Error(errorMessage = scheduleState.toString()) { viewModel.getSchedule() }
         }
     }
 
