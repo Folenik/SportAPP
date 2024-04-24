@@ -1,4 +1,4 @@
-package com.mosz.sportapp.ui
+package com.mosz.sportapp.ui.schedule
 
 import com.mosz.sportapp.data.model.SchedulesResponse
 
