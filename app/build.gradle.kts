@@ -87,6 +87,8 @@ dependencies {
     implementation(libs.navigation.hilt)
     implementation(libs.retrofit)
     implementation(libs.coil)
+    implementation(libs.exoplayer.ui)
+    implementation(libs.exoplayer.core)
     implementation(platform(libs.compose.bom))
 
     testImplementation(libs.bundles.common.test)

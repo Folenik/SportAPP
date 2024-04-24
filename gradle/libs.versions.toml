@@ -9,6 +9,7 @@ ktlint                              = "3.16.0"
 coil                                = "2.4.0"
 compose-bom                         = "2023.09.00"
 compose-compiler                    = "1.5.2"
+exoplayer                           = "2.18.2"
 hilt                                = "2.48"
 kotlin                              = "1.9.0"
 kotlin-coroutines                   = "1.6.0"
@@ -47,6 +48,8 @@ ktlint                              = { id = "org.jmailen.kotlinter", version.re
 coil                                = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 compose-bom                         = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-material3                   = { group = "androidx.compose.material3", name = "material3" }
+exoplayer-core                      = { module = "com.google.android.exoplayer:exoplayer-core", version.ref = "exoplayer" }
+exoplayer-ui                        = { module = "com.google.android.exoplayer:exoplayer-ui", version.ref = "exoplayer" }
 hilt                                = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler                       = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 kotlin-coroutines                   = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }

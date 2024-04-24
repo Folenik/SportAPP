@@ -1,9 +1,7 @@
 package com.mosz.sportapp.data
 
 import com.mosz.sportapp.data.model.BaseResponse
-import com.mosz.sportapp.data.model.Event
 import com.mosz.sportapp.data.model.EventsResponse
-import com.mosz.sportapp.data.model.Schedule
 import com.mosz.sportapp.data.model.SchedulesResponse
 import com.mosz.sportapp.data.remote.RemoteDataSource
 import com.mosz.sportapp.utils.NetworkResult
