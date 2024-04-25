@@ -1,7 +1,6 @@
 [versions]
 # plugins
 android-gradle                      = "8.1.1"
-junit                               = "1.9.3.0"
 ksp                                 = "1.9.0-1.0.13"
 ktlint                              = "3.16.0"
 
@@ -25,7 +24,6 @@ timber                              = "5.0.1"
 # test libraries
 test-junit                          = "4.13.2"
 test-mockito                        = "5.1.0"
-test-mockk                          = "1.13.7"
 test-turbine                        = "1.0.0"
 
 # android test libraries
@@ -34,7 +32,6 @@ test-android-arch                   = "2.2.0"
 
 [plugins]
 android-application                 = { id = "com.android.application", version.ref = "android-gradle" }
-android-library                     = { id = "com.android.library", version.ref = "android-gradle" }
 hilt                                = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin                              = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-parcelize                    = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }

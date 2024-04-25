@@ -11,11 +11,9 @@ import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onLast
-import androidx.compose.ui.test.performScrollTo
 import com.mosz.sportapp.ui.MainActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import okhttp3.internal.wait
 import org.junit.Assert.assertNotEquals
 import org.junit.Rule
 import org.junit.Test
