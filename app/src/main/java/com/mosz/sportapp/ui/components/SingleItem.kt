@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
@@ -48,7 +49,7 @@ fun SingleItem(image: String, title: String, subtitle: String, date: String, onI
         ) {
             Image(
                 painter = painter,
-                contentDescription = null,
+                contentDescription = "img",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .width(128.dp)
@@ -61,14 +62,14 @@ fun SingleItem(image: String, title: String, subtitle: String, date: String, onI
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier.padding(bottom = 4.dp),
+                    modifier = Modifier.padding(bottom = 4.dp).testTag("title"),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
                 Text(
                     text = subtitle,
                     style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(bottom = 4.dp),
+                    modifier = Modifier.padding(bottom = 4.dp).testTag("subtitle"),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
@@ -76,7 +77,7 @@ fun SingleItem(image: String, title: String, subtitle: String, date: String, onI
                 Text(
                     text = date,
                     style = MaterialTheme.typography.labelSmall,
-                    modifier = Modifier.padding(bottom = 4.dp),
+                    modifier = Modifier.padding(bottom = 4.dp).testTag("date"),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
