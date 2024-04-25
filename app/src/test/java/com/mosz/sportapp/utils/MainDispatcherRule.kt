@@ -1,6 +1,5 @@
 package com.mosz.sportapp.utils
 
-import com.mosz.sportapp.utils.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
